@@ -25,6 +25,11 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('site-info', [MoodleController::class, 'siteInfo']);
+    Route::get('/users', [MoodleController::class, 'users']);
+    Route::post('/users', [MoodleController::class, 'createUser']);
+    Route::post('/enroll', [MoodleController::class, 'enroll']);
+    Route::post('/unenroll', [MoodleController::class, 'unenroll']);
+    Route::post('/courses', [MoodleController::class, 'createCourse']);
 });
 
 

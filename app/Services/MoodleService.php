@@ -14,7 +14,7 @@ class MoodleService
     public function __construct()
     {
         $this->url = 'http://localhost/moodle/webservice/rest/server.php';
-        $this->token = '1e7206a5b0891121678b608b279d5907';
+        $this->token = '7244ddd0a3439c9334e6eb3e4db26cff';
         $this->client = new Client();
     }
 

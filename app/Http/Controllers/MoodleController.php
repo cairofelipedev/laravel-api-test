@@ -20,4 +20,11 @@ class MoodleController extends Controller
             $this->moodle->callMoodle('core_webservice_get_site_info')
         );
     }
+
+    public function listCoursers()
+    {
+        return response()->json(
+            $this->moodle->callMoodle('core_course_get_courses')
+        );
+    }
 }

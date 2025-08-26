@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MoodleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('site-info', [MoodleController::class, 'siteInfo']);
+Route::post('login', [AuthController::class, 'login']);
+
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('site-info', [MoodleController::class, 'siteInfo']);
+});
+
+
+Route::get('courses', [MoodleController::class, 'listCoursers']);
